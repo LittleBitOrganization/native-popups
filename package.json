@@ -1,0 +1,11 @@
+{
+  "name": "com.littlebitgames.nativepopups",
+  "displayName": "Native Popups",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "unityRelease": "8f1",
+  "category": "Module",
+  "author": {
+    "name": "LittleBitGames"
+  }
+}
