@@ -4,11 +4,11 @@
 
 extern UIViewController *UnityGetGLViewController();
 
-@interface iOSPlugin : NSObject
+@interface iOSNativePopupsPlugin : NSObject
 
 @end
 
-@implementation iOSPlugin
+@implementation iOSNativePopupsPlugin
 
 +(void)alertView:(NSString*)title addMessage:(NSString*) message
 {
@@ -65,16 +65,16 @@ extern "C"
 {
     void _ShowAlert(const char *title, const char *message)
     {
-        [iOSPlugin alertView:[NSString stringWithUTF8String:title] addMessage:[NSString stringWithUTF8String:message]];
+        [iOSNativePopupsPlugin alertView:[NSString stringWithUTF8String:title] addMessage:[NSString stringWithUTF8String:message]];
     }
     
     void _ShowAlertConfirmation(const char *title, const char *message, const char *callBack)
     {
-        [iOSPlugin alertConfirmationView:[NSString stringWithUTF8String:title] addMessage:[NSString stringWithUTF8String:message]  addCallBack:[NSString stringWithUTF8String:callBack]];
+        [iOSNativePopupsPlugin alertConfirmationView:[NSString stringWithUTF8String:title] addMessage:[NSString stringWithUTF8String:message]  addCallBack:[NSString stringWithUTF8String:callBack]];
     }
     
     void _ShareMessage(const char *message, const char *url)
     {
-        [iOSPlugin shareView:[NSString stringWithUTF8String:message] addUrl:[NSString stringWithUTF8String:url]];
+        [iOSNativePopupsPlugin shareView:[NSString stringWithUTF8String:message] addUrl:[NSString stringWithUTF8String:url]];
     }
 }
