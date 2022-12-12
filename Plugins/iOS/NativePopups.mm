@@ -4,24 +4,24 @@
 
 extern UIViewController *UnityGetGLViewController();
 
-@interface iOSNativePopupsPlugin : NSObject
+@interface NativePopups : NSObject
 
 @end
 
-@implementation iOSNativePopupsPlugin
+@implementation NativePopups
 
-+(void)alertView:(NSString*)title addMessage:(NSString*) message
++(void)showOneButton:(NSString*)title addMessage:(NSString*) message addButtonTitle:(NSString*) buttonTitle
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@buttonTitle style:UIAlertActionStyleDefault handler:nil];
     
     [alert addAction:defaultAction];
     [UnityGetGLViewController() presentViewController:alert animated:YES completion:nil];
 }
 
-+(void)alertConfirmationView:(NSString*)title addMessage:(NSString*)message addCallBack:(NSString*)callback
++(void)showTwoButton:(NSString*)title addMessage:(NSString*)message addFirstButtonTitle:(NSString*) firstButtonTitle addSecondButtonTitle:(NSString*) secondButtonTitle addCallBack:(NSString*)callback
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message preferredStyle:UIAlertControllerStyleAlert];
@@ -63,18 +63,18 @@ extern UIViewController *UnityGetGLViewController();
 
 extern "C"
 {
-    void _ShowAlert(const char *title, const char *message)
+    void _ShowOneButton(const char *title, const char *message, const char *buttonTitle)
     {
-        [iOSNativePopupsPlugin alertView:[NSString stringWithUTF8String:title] addMessage:[NSString stringWithUTF8String:message]];
+        [NativePopups showOneButton:[NSString stringWithUTF8String:title] addMessage:[NSString stringWithUTF8String:message] addButtonTitle:[NSString stringWithUTF8String:buttonTitle]];
     }
     
-    void _ShowAlertConfirmation(const char *title, const char *message, const char *callBack)
+    void _ShowTwoButton(const char *title, const char *message, const char *firstButtonTitle, const char *secondButtonTitle, const char *callBack)
     {
-        [iOSNativePopupsPlugin alertConfirmationView:[NSString stringWithUTF8String:title] addMessage:[NSString stringWithUTF8String:message]  addCallBack:[NSString stringWithUTF8String:callBack]];
+        [NativePopups showTwoButton:[NSString stringWithUTF8String:title] addMessage:[NSString stringWithUTF8String:message] addFirstButtonTitle:[NSString stringWithUTF8String:firstButtonTitle] addSecondButtonTitle:[NSString stringWithUTF8String:secondButtonTitle]  addCallBack:[NSString stringWithUTF8String:callBack]];
     }
     
     void _ShareMessage(const char *message, const char *url)
     {
-        [iOSNativePopupsPlugin shareView:[NSString stringWithUTF8String:message] addUrl:[NSString stringWithUTF8String:url]];
+        [NativePopups shareView:[NSString stringWithUTF8String:message] addUrl:[NSString stringWithUTF8String:url]];
     }
 }
