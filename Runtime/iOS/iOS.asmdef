@@ -1,10 +1,10 @@
 {
-    "name": "EditorNativePopup",
+    "name": "iOS",
     "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [
-        "Editor"
+        "iOS"
     ],
     "allowUnsafeCode": false,
     "overrideReferences": false,
