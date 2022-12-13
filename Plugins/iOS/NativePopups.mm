@@ -18,7 +18,7 @@ extern UIViewController *UnityGetGLViewController();
     
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:buttonTitle style:UIAlertActionStyleDefault
                                                         handler:^(UIAlertAction *action){
-                                                            SendMessageToUnity(@"Test key from native code", true);
+                                                            SendMessageToUnity(callbackKey, true);
                                                         }];
     
     [alert addAction:defaultAction];

@@ -4,7 +4,8 @@
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [
-        "iOS"
+        "iOS",
+        "tvOS"
     ],
     "allowUnsafeCode": false,
     "overrideReferences": false,
