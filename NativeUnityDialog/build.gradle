@@ -1,0 +1,32 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+plugins {
+    id 'com.android.application' version '7.2.2' apply false
+    id 'com.android.library' version '7.2.2' apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+/*task clearLibraryAar(type: Delete) {
+    delete fileTree("${deployAarPath}") {
+        include 'unity-native-dialog-**.aar'
+    }
+}
+
+task deployLibraryAar(type: Copy, dependsOn: clearLibraryAar) {
+    from('build/outputs/aar/')
+    into("${deployAarPath}")
+    include('unity-native-dialog-release.aar')
+    //rename('unity-native-dialog-release.aar', 'unity-native-dialog-' + android.defaultConfig.versionName + '.aar')
+    doLast {
+        fileTree("${deployAarPath}"){ include { it.file.name ==~ "^unity-native-dialog-([0-9.]+).aar.meta\$" }}.each { f -> f.renameTo(file("${deployAarPath}/unity-native-dialog-" + android.defaultConfig.versionName + ".aar.meta")) }
+    }
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'bundleRelease') {
+        task.finalizedBy 'deployLibraryAar'
+    }
+}*/
