@@ -1,11 +1,11 @@
 {
-    "name": "Android",
+    "name": "NativePopups.Android",
     "rootNamespace": "",
     "references": [],
-    "includePlatforms": [],
-    "excludePlatforms": [
+    "includePlatforms": [
         "Android"
     ],
+    "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],

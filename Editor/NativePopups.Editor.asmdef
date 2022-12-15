@@ -1,9 +1,10 @@
 {
-    "name": "iOS",
+    "name": "NativePopups.Editor",
     "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [
+        "Android",
         "iOS",
         "tvOS"
     ],

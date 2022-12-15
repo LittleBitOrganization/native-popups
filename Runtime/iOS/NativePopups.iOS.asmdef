@@ -1,0 +1,17 @@
+{
+    "name": "NativePopups.iOS",
+    "rootNamespace": "",
+    "references": [],
+    "includePlatforms": [
+        "iOS",
+        "tvOS"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
