@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using UnityEngine;
 
 public static class MonoJavaCallback
@@ -17,14 +17,15 @@ public static class MonoJavaCallback
         // В качестве аргумента передаем JSONObject
         // по аналогии с примером из первой части, 
         // но можно было использовать и другие типы
-        public void onHandleResult(AndroidJavaObject result)
+        public void OnHandleResult(AndroidJavaObject result)
         {
             if(_resultHandler != null)
             {
                 // Переводим json объект в строку
                 var resultJson = result == null ? null : result.Call<string>("toString");
                 // и парсим эту строку в C# объект
-                _resultHandler.Invoke(Newtonsoft.Json.JsonConvert.DeserializeObject<T>(resultJson));
+                
+                _resultHandler.Invoke( JsonUtility.FromJson<T>(resultJson));
             }
         }
     }
@@ -34,4 +35,4 @@ public static class MonoJavaCallback
     {
         return new AndroidCallbackHandler<T>(action);
     }
-}
+}*/
