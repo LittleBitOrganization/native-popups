@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Title
+  m_Text: Two Buttons
 --- !u!1 &643863990634332861
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ButtonName
+  m_Text: No?
 --- !u!1 &673728052362703929
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonText: {fileID: 2767533143817625887}
+  <Button>k__BackingField: {fileID: 4900862128218551170}
   <ResponseValue>k__BackingField: 0
 --- !u!1 &1248767214799238135
 GameObject:
@@ -472,7 +473,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Title
+  m_Text: One Button
 --- !u!1 &1369005091452440625
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1883195866050579217
 RectTransform:
   m_ObjectHideFlags: 0
@@ -694,7 +695,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Title
+  m_Text: Two Buttons
 --- !u!1 &2584066585910151674
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonText: {fileID: 4488698924161013445}
+  <Button>k__BackingField: {fileID: 3940673540519305722}
   <ResponseValue>k__BackingField: 0
 --- !u!1 &3680890904717307340
 GameObject:
@@ -917,7 +919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8039512804278744423
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1175,6 +1177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonText: {fileID: 5714671748306471806}
+  <Button>k__BackingField: {fileID: 7268739053146486811}
   <ResponseValue>k__BackingField: 1
 --- !u!1 &4035389974623813289
 GameObject:
@@ -1255,7 +1258,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ButtonName
+  m_Text: Yes!
 --- !u!1 &4278451702628366572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1469,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: Hello this is a alert with two buttons !
 --- !u!1 &6150294764079491822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,7 +1532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1603,6 +1606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonText: {fileID: 1246629105760602311}
+  <Button>k__BackingField: {fileID: 4912314020845295899}
   <ResponseValue>k__BackingField: 1
 --- !u!1 &6410463841415070354
 GameObject:
@@ -1740,6 +1744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonText: {fileID: 7952124379765370883}
+  <Button>k__BackingField: {fileID: 5345201413679771621}
   <ResponseValue>k__BackingField: 1
 --- !u!1 &7129510322387684002
 GameObject:
@@ -1820,7 +1825,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: Hello this is a alert with two buttons !
 --- !u!1 &7196600676811604923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,7 +1905,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ButtonName
+  m_Text: No?
 --- !u!1 &7322434565127473971
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,7 +2056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1812430247848511311
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2252,7 +2257,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ButtonName
+  m_Text: Super!
 --- !u!1 &7869206932744662107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,6 +2394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonText: {fileID: 5275856271068729210}
+  <Button>k__BackingField: {fileID: 4662520198867316377}
   <ResponseValue>k__BackingField: 0
 --- !u!1 &7981039096116121837
 GameObject:
@@ -2469,7 +2475,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Yes
+  m_Text: No?
 --- !u!1 &8257816595791993476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,7 +2555,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: Hello this is a alert with one button !
 --- !u!1 &8572539491415676906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2693,4 +2699,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: No
+  m_Text: Yes!

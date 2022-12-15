@@ -1,31 +1,38 @@
+using System;
+using UnityEngine;
+
 namespace NativePopups
 {
     public static class NativePopup
     {
-        public static EditorPopupsService EditorPopupsService { get; private set; }
+        public static event Action<EditorPopupsService> PopupShowed;
+        
         public static string CurrentCallbackKey { get; private set; }
 
-        private static PopupsFactory _popupsFactory = new PopupsFactory();
-        
+        public static GameObject Root;
+
         public static void ShowOneButton(string title, string message, string buttonTitle, string callbackKey)
         {
-            var editorPopupsService = _popupsFactory.GetPopup();
+            var editorPopupsService = PopupsFactory.GetPopup(Root);
             editorPopupsService.ShowPopup(0, title, message, new []{buttonTitle});
             CurrentCallbackKey = callbackKey;
+            PopupShowed?.Invoke(editorPopupsService);
         }
 
         public static void ShowTwoButton(string title, string message, string firstButtonTitle, string secondButtonTitle, string callbackKey)
         {
-            var editorPopupsService = _popupsFactory.GetPopup();
-            editorPopupsService.ShowPopup(0, title, message, new []{firstButtonTitle, secondButtonTitle});
+            var editorPopupsService = PopupsFactory.GetPopup(Root);
+            editorPopupsService.ShowPopup(1, title, message, new []{firstButtonTitle, secondButtonTitle});
             CurrentCallbackKey = callbackKey;
+            PopupShowed?.Invoke(editorPopupsService);
         }
 
         public static void ShowThreeButton(string title, string message, string firstButtonTitle, string secondButtonTitle, string thirdButtonTitle, string callbackKey)
         {
-            var editorPopupsService = _popupsFactory.GetPopup();
-            editorPopupsService.ShowPopup(0, title, message, new []{firstButtonTitle, secondButtonTitle, thirdButtonTitle});
+            var editorPopupsService = PopupsFactory.GetPopup(Root);
+            editorPopupsService.ShowPopup(2, title, message, new []{firstButtonTitle, secondButtonTitle, thirdButtonTitle});
             CurrentCallbackKey = callbackKey;
+            PopupShowed?.Invoke(editorPopupsService);
         }
 
         public static void ShareMessage(string message, string url = "")

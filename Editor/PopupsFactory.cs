@@ -2,21 +2,21 @@ using UnityEngine;
 
 namespace NativePopups
 {
-    public class PopupsFactory
+    public static class PopupsFactory
     {
-        private EditorPopupsService _editorPopupService;
+        private static EditorPopupsService _editorPopupService;
         
-        public EditorPopupsService GetPopup()
+        public static EditorPopupsService GetPopup(GameObject root)
         {
-            GameObject popupGO = Resources.Load<GameObject>("EditorPopup.prefab");
+            GameObject popupGO = Resources.Load<GameObject>("EditorPopup");
             
-            GameObject.Instantiate(popupGO);
+            GameObject.Instantiate(popupGO, root.transform);
             
             _editorPopupService = popupGO.GetComponent<EditorPopupsService>();
             
             return _editorPopupService;
         }
 
-        public void DeletePopup() => GameObject.Destroy(_editorPopupService.gameObject);
+        public static void DeletePopup() => GameObject.Destroy(_editorPopupService.gameObject);
     }
 }
