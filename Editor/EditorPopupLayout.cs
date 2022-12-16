@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 namespace NativePopups
 {
-    public class EditorPopup : MonoBehaviour
+    public class EditorPopupLayout : MonoBehaviour
     {
-        public List<ButtonPopup> Buttons { get; private set; }
+        public List<ButtonPopupLayout> Buttons { get; private set; }
         
         [SerializeField] private Text title;
         [SerializeField] private Text description;
@@ -22,14 +22,14 @@ namespace NativePopups
 
         private void UpdateButtons(string[] buttonsTitles)
         {
-            Buttons = buttonsContainer.GetComponentsInChildren<ButtonPopup>().ToList();
+            Buttons = buttonsContainer.GetComponentsInChildren<ButtonPopupLayout>().ToList();
 
             for (int i = 0; i < Buttons.Count; i++)
             {
                 if (buttonsTitles[i] is not null)
-                    Buttons[i].buttonText.text = buttonsTitles[i];
+                    Buttons[i].ButtonText.text = buttonsTitles[i];
                 else
-                    Buttons[i].buttonText.text = "Nothing";
+                    Buttons[i].ButtonText.text = "Nothing";
             }
         }
     }
