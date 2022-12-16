@@ -22,17 +22,21 @@ namespace NativePopups
             openSettingsData.buttonPositive.text = secondButtonTitle;
             openSettingsData.buttonPositive.callbackMessage = true;
 
-            var json = JsonUtility.ToJson(openSettingsData);
-            
+            var json = JsonUtility.ToJson(openSettingsData, true);
+
+            Debug.LogError(json);
             
             new AndroidJavaClass("com.littlebit.popups.PopupManager")
                 .CallStatic("ShowPopupFromUnity", "Alert", json);
-
-            JavaMessageHandler.AddMessageListener("Alert", s =>
+            
+            void OnClick(string response)
             {
-                Debug.LogError("Alert: " + s);
-            });
+                JavaMessageHandler.RemoveMessageListener(callbackKey, OnClick);
+            }
+
+            JavaMessageHandler.AddMessageListener(callbackKey, OnClick);
         }
+
 
         public static void ShowThreeButton(string title, string message, string firstButtonTitle, string secondButtonTitle, string thirdButtonTitle, string callbackKey)
         {

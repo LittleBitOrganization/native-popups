@@ -4,42 +4,44 @@ using UnityEngine;
 
 public static class MessageHandler
 {
-    
     // Этот метод будет вызываться автоматически при инициализации Unity Engine в игре
     [RuntimeInitializeOnLoadMethod]
     private static void Initialize()
-    { 
+    {
         new AndroidJavaClass("com.littlebit.popups.UnityBridge")
             .CallStatic("registerMessageHandler", new JavaMessageHandler());
-#if UNITY_ANDROID && !UNITY_EDITOR
-      // Создаем инстанс JavaMessageHandler и передаем его
-        new AndroidJavaClass("com.plugin.UnityBridge")
-            .CallStatic("registerMessageHandler", new JavaMessageHandler());
-#endif
     }
-    
 }
 
 // Данный класс будет реализовывать Java Interface, который описан ниже
 internal class JavaMessageHandler : AndroidJavaProxy
 {
-    private static readonly Dictionary<string, Action<string>> MessageListeners = new Dictionary<string, Action<string>>();
-        
-    public static void AddMessageListener(string message, Action<string> onMessage)
+    private static readonly Dictionary<string, Action<string>> MessageListeners =
+        new Dictionary<string, Action<string>>();
+    
+    public JavaMessageHandler() : base("com.littlebit.popups.MessageHandler.JavaMessageHandler")
     {
-        MessageListeners.Add(message, onMessage);
     }
-    public JavaMessageHandler() : base("com.plugin.JavaMessageHandler") {}
 
-    public void OnMessage(string message, string data) {
+    public static void AddMessageListener(string keyMessage, Action<string> onMessage)
+    {
+        if (MessageListeners.ContainsKey(keyMessage) == false)
+            MessageListeners[keyMessage] = onMessage;
+        else
+            MessageListeners[keyMessage] += onMessage;
+    }
 
-        if (MessageListeners.ContainsKey(message))
+    public static void RemoveMessageListener(string keyMessage, Action<string> onMessage)
+    {
+        if (MessageListeners.ContainsKey(keyMessage) == false) return;
+        MessageListeners[keyMessage] -= onMessage;
+    }
+    
+    public void OnMessage(string keyMessage, string message)
+    {
+        if (MessageListeners.ContainsKey(keyMessage))
         {
-            MessageListeners[message].Invoke(data);
+            MessageListeners[keyMessage].Invoke(message);
         }
-        Debug.Log(message);
-        Debug.Log(data);
-        // Переадресуем наше сообщение всем желающим
-        //MessageRouter.RouteMessage(message, data);
     }
 }
