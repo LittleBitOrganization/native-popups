@@ -1,3 +1,6 @@
+using System;
+using UnityEngine;
+
 namespace NativePopups
 {
     public static class NativePopup
@@ -9,7 +12,26 @@ namespace NativePopups
 
         public static void ShowTwoButton(string title, string message, string firstButtonTitle, string secondButtonTitle, string callbackKey)
         {
+            OpenSettingsData openSettingsData = new OpenSettingsData();
+            openSettingsData.content.text = message;
+            openSettingsData.title.text = title;
             
+            openSettingsData.buttonNegative.text = firstButtonTitle;
+            openSettingsData.buttonNegative.callbackMessage = false;
+            
+            openSettingsData.buttonPositive.text = secondButtonTitle;
+            openSettingsData.buttonPositive.callbackMessage = true;
+
+            var json = JsonUtility.ToJson(openSettingsData);
+            
+            
+            new AndroidJavaClass("com.littlebit.popups.PopupManager")
+                .CallStatic("ShowPopupFromUnity", "Alert", json);
+
+            JavaMessageHandler.AddMessageListener("Alert", s =>
+            {
+                Debug.LogError("Alert: " + s);
+            });
         }
 
         public static void ShowThreeButton(string title, string message, string firstButtonTitle, string secondButtonTitle, string thirdButtonTitle, string callbackKey)
@@ -21,5 +43,42 @@ namespace NativePopups
         {
             
         }
+        
+    }
+    
+    [Serializable]
+    public class OpenSettingsData {
+
+        public TextSettings title = new TextSettings();
+        public TextSettings content = new TextSettings();
+        public ButtonSettings buttonPositive = new ButtonSettings();
+        public ButtonSettings buttonNegative = new ButtonSettings();
+        public ButtonSettings buttonNeutral = new ButtonSettings();
+
+        public OpenSettingsData() {
+
+        }
+        
+        [Serializable]
+        public class ButtonSettings {
+
+            public string text;
+            public bool callbackMessage;
+
+            public ButtonSettings() {
+                text = null;
+            }
+            
+        }
+
+        [Serializable]
+        public class TextSettings {
+            public string text;
+
+            public TextSettings() {
+                text = null;
+            }
+        }
+
     }
 }
