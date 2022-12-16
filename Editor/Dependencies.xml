@@ -1,0 +1,6 @@
+<androidPackages>
+    <androidPackage spec="androidx.constraintlayout:constraintlayout:2.1.4" />
+    <androidPackage spec="com.google.code.gson:gson:2.10" />
+    <androidPackage spec="androidx.appcompat:appcompat:1.4.1" />
+    <androidPackage spec="com.google.android.material:material:1.6.0" />
+</androidPackages>
