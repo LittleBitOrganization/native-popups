@@ -1,13 +1,8 @@
 {
-    "name": "NativePopups.iOS",
+    "name": "NativePopups.Base",
     "rootNamespace": "",
-    "references": [
-        "GUID:0aced697338796047920b466224a89df"
-    ],
-    "includePlatforms": [
-        "iOS",
-        "tvOS"
-    ],
+    "references": [],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

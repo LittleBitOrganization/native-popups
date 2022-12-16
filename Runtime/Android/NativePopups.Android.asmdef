@@ -1,7 +1,9 @@
 {
     "name": "NativePopups.Android",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:0aced697338796047920b466224a89df"
+    ],
     "includePlatforms": [
         "Android"
     ],

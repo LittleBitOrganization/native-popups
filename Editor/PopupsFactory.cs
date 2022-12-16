@@ -2,15 +2,13 @@ using UnityEngine;
 
 namespace NativePopups
 {
-    public static class PopupsFactory
+    public class PopupsFactory
     {
-        public static GameObject EditorPopupLayout;
         
-        public static EditorPopupsLayout GetPopup(GameObject root)
+        public EditorPopupsLayout Create(Transform root = null)
         {
-            EditorPopupLayout = GameObject.Instantiate(Resources.Load<GameObject>("EditorPopup"), root.transform);
-            
-            var editorPopupLayout = EditorPopupLayout.GetComponent<EditorPopupsLayout>();
+            var go = GameObject.Instantiate(Resources.Load<GameObject>("EditorPopupCanvas"), root);
+            var editorPopupLayout = go.GetComponentInChildren<EditorPopupsLayout>();
             
             return editorPopupLayout;
         }
