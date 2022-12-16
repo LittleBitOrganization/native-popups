@@ -4,19 +4,15 @@ namespace NativePopups
 {
     public static class PopupsFactory
     {
-        private static EditorPopupsService _editorPopupService;
+        public static GameObject EditorPopupLayout;
         
-        public static EditorPopupsService GetPopup(GameObject root)
+        public static EditorPopupsLayout GetPopup(GameObject root)
         {
-            GameObject popupGO = Resources.Load<GameObject>("EditorPopup");
+            EditorPopupLayout = GameObject.Instantiate(Resources.Load<GameObject>("EditorPopup"), root.transform);
             
-            GameObject.Instantiate(popupGO, root.transform);
+            var editorPopupLayout = EditorPopupLayout.GetComponent<EditorPopupsLayout>();
             
-            _editorPopupService = popupGO.GetComponent<EditorPopupsService>();
-            
-            return _editorPopupService;
+            return editorPopupLayout;
         }
-
-        public static void DeletePopup() => GameObject.Destroy(_editorPopupService.gameObject);
     }
 }

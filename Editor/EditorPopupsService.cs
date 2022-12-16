@@ -1,19 +1,13 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace NativePopups
 {
-    public class EditorPopupsService : MonoBehaviour
+    public class EditorPopupsService
     {
-        public EditorPopup CurrentPopup { get; private set; }
+        public void Initialize() => MessageHandler.ResponseReceived +=
+            (k, r) => GameObject.Destroy(PopupsFactory.EditorPopupLayout);
         
-        [SerializeField] private List<EditorPopup> popups;
-
-        public void ShowPopup(int popupIndex, string title, string description, string[] buttonsTitles)
-        {
-            popups[popupIndex].gameObject.SetActive(true);
-            popups[popupIndex].UpdateView(title, description, buttonsTitles);
-            CurrentPopup = popups[popupIndex];
-        }
+        public void Destroy() => MessageHandler.ResponseReceived -=
+            (k, r) => GameObject.Destroy(PopupsFactory.EditorPopupLayout);
     }
 }
